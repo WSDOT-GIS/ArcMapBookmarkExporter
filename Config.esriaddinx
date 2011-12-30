@@ -1,0 +1,32 @@
+﻿<ESRI.Configuration xmlns="http://schemas.esri.com/Desktop/AddIns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>Bookmark Exporter</Name>
+  <AddInID>{554b4b51-bc86-4a88-9187-8152988b86a0}</AddInID>
+  <Description>Exports all of the bookmarks in an ArcMap document.</Description>
+  <Version>1.0</Version>
+  <Image>Images\BookmarkExporterAddIn.png</Image>
+  <Author>Jeff Jacobson</Author>
+  <Company>WSDOT</Company>
+  <Date>6/14/2011</Date>
+  <Targets>
+    <Target name="Desktop" version="10.0" />
+  </Targets>
+  <AddIn language="CLR" library="BookmarkExporterAddIn.dll" namespace="BookmarkExporterAddIn">
+    <ArcMap>
+      <DockableWindows>
+        <DockableWindow id="WSDOT_BookmarkExporterAddIn_BookmarkExporterWindow" class="BookmarkExporterWindow+AddinImpl" caption="Bookmark Exporter" image="Images\BookmarkExporterWindow.png">
+          <InitialPlacement height="300" width="300" state="pinned" position="left" />
+        </DockableWindow>
+      </DockableWindows>
+      <Menus>
+        <Menu id="WSDOT_BookmarkExporterAddIn_Export" caption="Export" isRootMenu="false">
+          <Items />
+        </Menu>
+      </Menus>
+      <Commands>
+        <Button id="WSDOT_BookmarkExporterAddIn_ExportBookmarksButton" class="ExportBookmarksButton" message="Exports bookmarks to images." caption="Export bookmarks" tip="Exports bookmarks to images." category="WSDOT Tools" image="Images\ExportBookmarksButton.png">
+          <Help heading="Export Bookmarks">Exports bookmarks to images.</Help>
+        </Button>
+      </Commands>
+    </ArcMap>
+  </AddIn>
+</ESRI.Configuration>

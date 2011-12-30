@@ -1,0 +1,47 @@
+﻿/*
+ * Copyright (c) 2011 Washington State Department of Transportation
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>
+ *
+ */
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
+using ESRI.ArcGIS.Framework;
+using ESRI.ArcGIS.esriSystem;
+using ESRI.ArcGIS.ADF;
+
+
+namespace BookmarkExporterAddIn
+{
+    public class ExportBookmarksButton : ESRI.ArcGIS.Desktop.AddIns.Button
+    {
+        public ExportBookmarksButton()
+        {
+        }
+
+        protected override void OnClick()
+        {
+            UIDClass winUid = new UIDClass { Value = "WSDOT_BookmarkExporterAddIn_BookmarkExporterWindow" };
+            IDockableWindow docWindow = ArcMap.DockableWindowManager.GetDockableWindow(winUid);
+            docWindow.Show(true);
+            ComReleaser.ReleaseCOMObject(winUid);
+        }
+
+        protected override void OnUpdate()
+        {
+        }
+    }
+}
